@@ -1,0 +1,45 @@
+{
+	"title": "Mariadb",
+	"description": "Mariadb Server",
+	"configuration": {
+	  "DEBIAN_FRONTEND" : "noninteractive",
+		"max_allowed_packet": "4M",
+		"event-scheduler": 1,
+		"sql_mode": "1",
+		"local_infile": 1,
+		"innodb_buffer_pool_size": 134217728
+	}
+},
+"os_packages": [
+	{
+		"type": "debian",
+		"name": "default-mysql-server"
+	}
+],
+"images": [
+	{
+		"type": "lxd",
+		"image": "images/debian/stretch/cloud"
+	}
+],
+"containers": [
+	{
+		"type": "lxd"
+	}
+],
+"binding_anchor": {
+	"variables": {
+		"databasename": "^^identifier^^",
+		"username": "^^identifier^^_user",
+		"password": "^^random(10)^^",
+		"collation": "utf8_general_ci",
+		"charset": "utf8",
+		"super_user": false,
+		"grant:": false
+	},
+	"strategy": {
+		"type": "container_script",
+		"path": "/usr/local/bin/create_db_and_user.sh"
+	}
+}
+}
