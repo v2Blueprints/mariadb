@@ -1,0 +1,30 @@
+{
+ "variables" : {
+  "DEBIAN_FRONTEND" : "noninteractive"
+ },
+  "builders": [
+    {
+      "type": "lxd",
+      "name": "lxd-ubuntu",
+      "image": "images/debian/stretch/cloud",
+      "output_image": "mysqld:test",
+      "publish_properties": {
+        "description": "Trivial repackage with Packer"
+      }
+    }
+   ],
+ "provisioners": [
+{
+    "type" : "file",
+    "source" : "injections/",
+    "destination" : "/tmp/"
+   },
+    {
+      "type": "shell",
+      "inline": [
+       "apt-get -y update", 
+      "apt-get install -y default-mysql-server",
+      "cd /tmp/injections ; sudo cp -rp . / "]
+    }
+  ]
+}
