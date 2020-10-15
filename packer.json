@@ -26,6 +26,6 @@
       "apt-get install -y default-mysql-server",
       "cd /tmp/injections ;cp -rp . / ",
       "mysql < /tmp/init.sql; rm /tmp/init.sql"]
-    }
+    } 
   ]
 }

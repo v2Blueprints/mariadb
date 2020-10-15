@@ -33,7 +33,7 @@ Q1="CREATE DATABASE IF NOT EXISTS ${BTICK}$username${BTICK}   DEFAULT CHARACTER 
 
  if test "$full_access" = true 
  	 then
- 	   Q2="GRANT ALL  PRIVILEGES ON *.* TO ${BTICK}$username${BTICK}@${BTICK}%${BTICK} WITH GRANT OPTION;"	   
+ 	   Q2="GRANT ALL  PRIVILEGES ON *.* TO ${BTICK}$username@%${BTICK} WITH GRANT OPTION;"	   
        Q3="Grant Create User on ${BTICK}$databasename${BTICK}.*  to '$username'@'%';"
  	fi
  
