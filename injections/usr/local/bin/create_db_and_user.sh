@@ -8,7 +8,7 @@
 
 #FIX ME note all parameters passed in the environment to this Script must be sanitised (no ; no & etc
  
-BTICK='`'
+
 
 MYSQL=`which mysql`
 
@@ -19,27 +19,27 @@ if test -z "$charset"
  	charset=utf8
 fi
 
-Q1="CREATE DATABASE IF NOT EXISTS ${BTICK}$username${BTICK}   DEFAULT CHARACTER SET $charset
+Q1="CREATE DATABASE IF NOT EXISTS '$databasename'  DEFAULT CHARACTER SET $charset
   DEFAULT COLLATE $collation ; Create User '$username@%' IDENTIFIED BY '$password';"
 
 
 	if test "$super_user" = true
   	 then
  	   Q2="UPDATE mysql.user SET Super_Priv='Y' WHERE user='$username'; \
- 	    GRANT ALL PRIVILEGES ON *.* TO  ${BTICK}$password@%${BTICK}; 
+ 	    GRANT ALL PRIVILEGES ON *.* TO  '$username@%'; 
  	    FLUSH PRIVILEGES;"
     fi
 	    
 
  if test "$full_access" = true 
  	 then
- 	   Q2="GRANT ALL  PRIVILEGES ON *.* TO ${BTICK}$username@%${BTICK} WITH GRANT OPTION;"	   
-       Q3="Grant Create User on ${BTICK}$databasename${BTICK}.*  to '$username@%';"
+ 	   Q2="GRANT ALL  PRIVILEGES ON *.* TO '$username@%' WITH GRANT OPTION;"	   
+       Q3="Grant Create User on $databasename.*  to '$username@%';"
  	fi
  
  if test -z $full_access
  then
-   Q2="GRANT ALL PRIVILEGES ON ${BTICK}$databasename${BTICK}.* TO '$username@%';"
+   Q2="GRANT ALL PRIVILEGES ON $databasename.* TO '$username@%';"
  fi
 
 Q4="FLUSH PRIVILEGES;"
