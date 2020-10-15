@@ -48,11 +48,13 @@ SQL="${Q1}${Q2}${Q3}${Q4}"
 echo "$SQL" >/tmp/$databasename.sql
 
 $MYSQL  -e "$SQL" 2>&1 > /tmp/res
+err_num=$?
 res=`cat /tmp/res`
 
 echo $res | grep -v ERROR
- 
-if test $? -eq 0
+
+#dont pass on warnings (v1 headspace)
+if test $? -ne 0
  then 
 	echo "Success"
 	exit 0
@@ -60,5 +62,5 @@ fi
 	
 echo "Error:$res"
 echo with $SQL
-exit 127
+exit $err_num
 
