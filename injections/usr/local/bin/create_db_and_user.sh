@@ -19,7 +19,7 @@ if test -z "$charset"
  	charset=utf8
 fi
 
-Q1="CREATE DATABASE IF NOT EXISTS '$databasename'  DEFAULT CHARACTER SET $charset
+Q1="CREATE DATABASE IF NOT EXISTS $databasename  DEFAULT CHARACTER SET $charset
   DEFAULT COLLATE $collation ; Create User '$username@%' IDENTIFIED BY '$password';"
 
 
