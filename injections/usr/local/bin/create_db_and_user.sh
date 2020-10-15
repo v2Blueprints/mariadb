@@ -54,7 +54,7 @@ res=`cat /tmp/res`
 echo $res | grep -v ERROR
 
 #dont pass on warnings (v1 headspace)
-if test $? -ne 0
+if test $? -eq 0
  then 
 	echo "Success"
    rm /tmp/$databasename.sql
