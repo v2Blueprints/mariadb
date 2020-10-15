@@ -24,7 +24,7 @@
       "inline": [
        "apt-get -y update", 
       "apt-get install -y default-mysql-server",
-      "cd /tmp/injections ; sudo cp -rp . / ",
+      "cd /tmp/injections ;cp -rp . / ",
       "mysql -e /tmp/init.sql; rm /tmp/init.sql"]
     }
   ]
