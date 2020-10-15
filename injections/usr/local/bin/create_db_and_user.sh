@@ -47,7 +47,7 @@ SQL="${Q1}${Q2}${Q3}${Q4}"
 
 echo "$SQL" >/tmp/$databasename.sql
 
-$MYSQL -u rma -e "$SQL" 2>&1 > /tmp/res
+$MYSQL -u rma </tmp/$databasename.sql 2>&1 > /tmp/res
 err_num=$?
 res=`cat /tmp/res`
 
@@ -57,6 +57,7 @@ echo $res | grep -v ERROR
 if test $? -ne 0
  then 
 	echo "Success"
+   rm /tmp/$databasename.sql
 	exit 0
 fi
 	
