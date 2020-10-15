@@ -3,6 +3,7 @@
 	"description": "Mariadb Server",
 	"configuration": {
 	  "DEBIAN_FRONTEND" : "noninteractive",
+	  "root_password" : "^^random_32^^",
 		"max_allowed_packet": "4M",
 		"event-scheduler": 1,
 		"sql_mode": "1",

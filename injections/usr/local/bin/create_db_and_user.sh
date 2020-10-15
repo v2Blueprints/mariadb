@@ -47,7 +47,7 @@ SQL="${Q1}${Q2}${Q3}${Q4}"
 
 echo "$SQL" >/tmp/$databasename.sql
 
-$MYSQL  -e "$SQL" 2>&1 > /tmp/res
+$MYSQL -u rma -e "$SQL" 2>&1 > /tmp/res
 err_num=$?
 res=`cat /tmp/res`
 

@@ -1,9 +1,10 @@
 #actually mysql values
+# commented out to avoid errors while testing with unresolved
 
-max_allowed_packet = ^^max_allowed_packet^^
-event-scheduler = ^^event_scheduler^^
-sql_mode = ^^sql_mode^^
-local_infile = ^^local_infile^^
-innodb_buffer_pool_size = ^^innodb_buffer_pool_size^^
+#max_allowed_packet = ^^max_allowed_packet^^
+#event-scheduler = ^^event_scheduler^^
+#sql_mode = ^^sql_mode^^
+#local_infile = ^^local_infile^^
+#innodb_buffer_pool_size = ^^innodb_buffer_pool_size^^
 
 
