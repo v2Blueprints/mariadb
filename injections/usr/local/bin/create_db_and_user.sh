@@ -20,13 +20,13 @@ if test -z "$charset"
 fi
 
 Q1="CREATE DATABASE IF NOT EXISTS ${BTICK}$username${BTICK}   DEFAULT CHARACTER SET $charset
-  DEFAULT COLLATE $collation ; Create User '$password'@'%' IDENTIFIED BY '$password';"
+  DEFAULT COLLATE $collation ; Create User '$username@%' IDENTIFIED BY '$password';"
 
 
 	if test "$super_user" = true
   	 then
  	   Q2="UPDATE mysql.user SET Super_Priv='Y' WHERE user='$username'; \
- 	    GRANT ALL PRIVILEGES ON *.* TO  ${BTICK}$password${BTICK}@${BTICK}%${BTICK}; 
+ 	    GRANT ALL PRIVILEGES ON *.* TO  ${BTICK}$password@%${BTICK}; 
  	    FLUSH PRIVILEGES;"
     fi
 	    
@@ -34,12 +34,12 @@ Q1="CREATE DATABASE IF NOT EXISTS ${BTICK}$username${BTICK}   DEFAULT CHARACTER 
  if test "$full_access" = true 
  	 then
  	   Q2="GRANT ALL  PRIVILEGES ON *.* TO ${BTICK}$username@%${BTICK} WITH GRANT OPTION;"	   
-       Q3="Grant Create User on ${BTICK}$databasename${BTICK}.*  to '$username'@'%';"
+       Q3="Grant Create User on ${BTICK}$databasename${BTICK}.*  to '$username@%';"
  	fi
  
  if test -z $full_access
  then
-   Q2="GRANT ALL PRIVILEGES ON ${BTICK}$databasename${BTICK}.* TO '$username'@'%';"
+   Q2="GRANT ALL PRIVILEGES ON ${BTICK}$databasename${BTICK}.* TO '$username@%';"
  fi
 
 Q4="FLUSH PRIVILEGES;"
