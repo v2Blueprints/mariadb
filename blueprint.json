@@ -2,8 +2,8 @@
 	"title": "Mariadb",
 	"description": "Mariadb Server",
 	"configuration": {
-	  "DEBIAN_FRONTEND" : "noninteractive",
-	  "root_password" : "^^random_32^^",
+		"DEBIAN_FRONTEND": "noninteractive",
+		"root_password": "^^random_32^^",
 		"max_allowed_packet": "4M",
 		"event-scheduler": 1,
 		"sql_mode": "1",
@@ -38,9 +38,80 @@
 		"super_user": false,
 		"grant:": false
 	},
-	"strategy": {
-		"type": "container_script",
-		"path": "/usr/local/bin/create_db_and_user.sh"
+	"strategies": [
+		"addition": {
+			"type": "container_script",
+			"path": "/usr/local/bin/create_db_and_user.sh",
+			"required": [
+				[
+					"databasename",
+					"username",
+					"password"
+				]
+			],
+			"accepted": [
+				"databasename",
+				"username",
+				"password",
+				"collation",
+				"charset",
+				"super_user",
+				"grant"
+			]
+		},
+		"deletion": {
+			"type": "container_script",
+			"path": "/usr/local/bin/delete_db_and_user.sh",
+			"required": {
+				"complete": [
+					"databasename",
+					"username"
+				],
+				"user": [
+					"username"
+				]
+			},
+			"accepted": [
+				"databasename",
+				"username",
+			]
+		},
+		"modification": {
+			"type": "container_script",
+			"path": "/usr/local/bin/update_db_and_user.sh",
+			"protected": [
+				"databasename",
+				"username"
+			],
+			"accepted": {
+				"update_password": [
+					"username",
+					"password"
+				],
+				"super_user": [
+					"username",
+					"super_user"
+				],
+				"grant": [
+					"databasename",
+					"username",
+					"grant"
+				]
+			},
+			"required": {
+				"update_password": [
+					"username",
+					"password"
+				],
+				"super_user": [
+					"username",
+					"super_user"
+				],
+				"grant": [
+					"databasename",
+					"username",
+					"grant"
+				]
+			}
+		}
 	}
-}
-}

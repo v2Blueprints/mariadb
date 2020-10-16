@@ -2,9 +2,6 @@
 #I have avoided bash as it harder to sanitize params because there are more ways to break out
 #modified version of v1 add service script
 
-#needs to run as root
-#this could be changed bu setting up a user with mysql rights
-#v1 created a mysql user rma which had super user access to mysqld from localhost
 
 #FIX ME note all parameters passed in the environment to this Script must be sanitised (no ; no & etc
  
