@@ -13,18 +13,6 @@
 			}
 		}
 	],
-	"persistent": [
-		{   
-		    "type": "dir",
-			"destination": "/var/lib/mariadb/",
-			"source": "/var/lib/containers/mariadb/data"
-		},
-		{   
-		    "type": "file",
-			"destination": "/var/log/mariadb.log",
-			"source": "/var/lib/containers/mariadb/mariadb.log"
-		}
-	],
 	"provisioners": [
 		{
 			"type": "file",
