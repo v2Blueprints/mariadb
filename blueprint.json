@@ -2,6 +2,7 @@
 	"title": "Mariadb",
 	"description": "Mariadb Server",
 	"configuration": {
+		"database_hostname": "^^hostname^^",
 		"DEBIAN_FRONTEND": "noninteractive",
 		"root_password": "^^random_32^^",
 		"max_allowed_packet": "4M",
