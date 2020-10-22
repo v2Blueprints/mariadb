@@ -20,7 +20,7 @@
 "images": [
 	{
 		"type": "lxd",
-		"image": "images/debian/stretch/cloud"
+		"image": "images/debian/buster/cloud"
 	}
 ],
 "containers": [

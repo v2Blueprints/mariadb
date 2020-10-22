@@ -6,12 +6,15 @@
     {
       "type": "lxd",
       "name": "lxd-ubuntu",
-      "image": "images/debian/stretch/cloud",
+      "image": "images/debian/buster/cloud",
       "output_image": "mysqld:test",
       "publish_properties": {
         "description": "Trivial repackage with Packer"
       }
     }
+   ],
+   "persistent": [
+   "/var/lib/mariadb/"
    ],
  "provisioners": [
 {
