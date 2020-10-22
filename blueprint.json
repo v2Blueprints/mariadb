@@ -9,58 +9,56 @@
 		"sql_mode": "1",
 		"local_infile": 1,
 		"innodb_buffer_pool_size": 134217728
-	}
-},
-"persistent": [
-	{
-		"type": "dir",
-		"destination": "/var/lib/mariadb/",
-		"source": "/var/lib/containers/^^identifier^^/data"
 	},
-	{
-		"type": "file",
-		"destination": "/var/log/mariadb.log",
-		"source": "/var/lib/containers/^^identifier^^/mariadb.log"
-	}
-],
-"os_packages": [
-	{
-		"type": "debian",
-		"name": "default-mysql-server"
-	}
-],
-"images": [
-	{
-		"type": "lxd",
-		"image": "images/debian/buster/cloud"
-	}
-],
-"containers": [
-	{
-		"type": "lxd"
-	}
-],
-"binding_anchor": {
-	"variables": {
-		"databasename": "^^identifier^^",
-		"username": "^^identifier^^_user",
-		"password": "^^random(10)^^",
-		"collation": "utf8_general_ci",
-		"charset": "utf8",
-		"super_user": false,
-		"grant:": false
-	},
-	"strategies": [
-		"addition": {
-			"type": "container_script",
-			"path": "/usr/local/bin/create_db_and_user.sh",
-			"required": [
-				[
+	"persistent": [
+		{
+			"type": "dir",
+			"destination": "/var/lib/mariadb/",
+			"source": "/var/lib/containers/^^identifier^^/data"
+		},
+		{
+			"type": "file",
+			"destination": "/var/log/mariadb.log",
+			"source": "/var/lib/containers/^^identifier^^/mariadb.log"
+		}
+	],
+	"os_packages": [
+		{
+			"type": "debian",
+			"name": "default-mysql-server"
+		}
+	],
+	"images": [
+		{
+			"type": "lxd",
+			"image": "images/debian/buster/cloud"
+		}
+	],
+	"containers": [
+		{
+			"type": "lxd"
+		}
+	],
+	"binding_anchor": {
+		"variables": {
+			"databasename": "^^identifier^^",
+			"username": "^^identifier^^_user",
+			"password": "^^random(10)^^",
+			"collation": "utf8_general_ci",
+			"charset": "utf8",
+			"super_user": false,
+			"grant:": false
+		},
+		"strategies": {
+			"addition": {
+				"type": "container_script",
+				"path": "/usr/local/bin/create_db_and_user.sh",
+				"required": [
 					"databasename",
 					"username",
 					"password"
 				]
-			],
+			},
 			"accepted": [
 				"databasename",
 				"username",
@@ -85,45 +83,46 @@
 			},
 			"accepted": [
 				"databasename",
+				"username"
+			]
+		}
+	},
+	"modification": {
+		"type": "container_script",
+		"path": "/usr/local/bin/update_db_and_user.sh",
+		"protected": [
+			"databasename",
+			"username"
+		],
+		"accepted": {
+			"update_password": [
 				"username",
+				"password"
+			],
+			"super_user": [
+				"username",
+				"super_user"
+			],
+			"grant": [
+				"databasename",
+				"username",
+				"grant"
 			]
 		},
-		"modification": {
-			"type": "container_script",
-			"path": "/usr/local/bin/update_db_and_user.sh",
-			"protected": [
-				"databasename",
-				"username"
+		"required": {
+			"update_password": [
+				"username",
+				"password"
 			],
-			"accepted": {
-				"update_password": [
-					"username",
-					"password"
-				],
-				"super_user": [
-					"username",
-					"super_user"
-				],
-				"grant": [
-					"databasename",
-					"username",
-					"grant"
-				]
-			},
-			"required": {
-				"update_password": [
-					"username",
-					"password"
-				],
-				"super_user": [
-					"username",
-					"super_user"
-				],
-				"grant": [
-					"databasename",
-					"username",
-					"grant"
-				]
-			}
+			"super_user": [
+				"username",
+				"super_user"
+			],
+			"grant": [
+				"databasename",
+				"username",
+				"grant"
+			]
 		}
 	}
+}
