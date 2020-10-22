@@ -14,7 +14,11 @@
     }
    ],
    "persistent": [
-   "/var/lib/mariadb/"
+   {
+   "destination": "/var/lib/mariadb/",
+   "source": "/var/lib/containers/mariadb"
+   }
+   }
    ],
  "provisioners": [
 {
