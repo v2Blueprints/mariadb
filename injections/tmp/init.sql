@@ -1,5 +1,5 @@
 
-UPDATE mysql.user SET Password=PASSWORD('^^root_password^^') WHERE User='root';
+UPDATE mysql.user SET Password=PASSWORD('^^configuration.root_password^^') WHERE User='root';
 DELETE FROM mysql.user WHERE User='';
 
 
