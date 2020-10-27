@@ -9,16 +9,14 @@
 		"local_infile": 1,
 		"innodb_buffer_pool_size": 134217728
 	},
-	"persistent": [
+	"volumes": [
 		{
-			"type": "dir",
 			"destination": "/var/lib/mariadb/",
-			"source": "/var/lib/containers/^^identifier^^/data"
+			"source": "data"
 		},
 		{
-			"type": "file",
-			"destination": "/var/log/mariadb.log",
-			"source": "/var/lib/containers/^^identifier^^/mariadb.log"
+			"destination": "/var/log/",
+			"source": "logs"
 		}
 	],
 	"os_packages": [
