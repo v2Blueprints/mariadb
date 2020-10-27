@@ -1,6 +1,7 @@
 {
 	"title": "Mariadb",
 	"description": "Mariadb Server",
+	"ports": [3306],
 	"configuration": {
 		"root_password": "^^random(32)^^",
 		"max_allowed_packet": "4M",
@@ -9,10 +10,16 @@
 		"local_infile": 1,
 		"innodb_buffer_pool_size": 134217728
 	},
-	"volumes": [
+	"persistent": [
 		{
+			"type": "dir",
 			"destination": "/var/lib/mariadb/",
-			"source": "data"
+			"source": "/var/lib/containers/^^identifier^^/data"
+		},
+		{
+			"type": "file",
+			"destination": "/var/log/mariadb",
+			"source": "/var/lib/containers/logs/^^identifier^^/"
 		}
 	],
 	"os_packages": [
@@ -116,6 +123,7 @@
 				"username",
 				"grant"
 			]
+		}
 		}
 	}
 }

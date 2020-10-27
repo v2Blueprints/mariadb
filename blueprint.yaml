@@ -12,7 +12,7 @@ table:
       :local_infile: 1
       :innodb_buffer_pool_size: 134217728
     modifiable: true
-  :persistent:
+  :volumes:
   - !ruby/object:OpenStruct
     table:
       :type: dir
