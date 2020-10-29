@@ -19,12 +19,11 @@
 			"source": "logs"
 		}
 	],
-	"os_packages": [
-		{
-			"type": "debian",
-			"name": "default-mysql-server"
-		}
-	],
+	"os_packages": {
+		"adds": [
+			"default-mysql-server"
+		]
+	},
 	"images": [
 		{
 			"type": "lxd",
