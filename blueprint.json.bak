@@ -1,7 +1,6 @@
 {
 	"title": "Mariadb",
 	"description": "Mariadb Server",
-	"ports": [3306],
 	"configuration": {
 		"root_password": "^^random(32)^^",
 		"max_allowed_packet": "4M",
@@ -10,16 +9,10 @@
 		"local_infile": 1,
 		"innodb_buffer_pool_size": 134217728
 	},
-	"persistent": [
+	"volumes": [
 		{
-			"type": "dir",
 			"destination": "/var/lib/mariadb/",
-			"source": "/var/lib/containers/^^identifier^^/data"
-		},
-		{
-			"type": "file",
-			"destination": "/var/log/mariadb",
-			"source": "/var/lib/containers/logs/^^identifier^^/"
+			"source": "data"
 		}
 	],
 	"os_packages": [
@@ -73,7 +66,7 @@
 			"type": "container_script",
 			"path": "/usr/local/bin/delete_db_and_user.sh",
 			"required": {
-				"complete": [
+				"database": [
 					"databasename",
 					"username"
 				],
@@ -123,7 +116,6 @@
 				"username",
 				"grant"
 			]
-		}
 		}
 	}
 }
