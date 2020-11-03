@@ -46,20 +46,17 @@
 			"grant:": false
 		},
 		"scripts": {
-			"shell": [
-				{
-					"on": "bind",
-					"path": "/usr/local/bin/create_db_and_user.sh"
-				},
-				{
-					"on": "unbind",
-					"path": "/usr/local/bin/delete_db_and_user.sh"
-				},
-				{
-					"on": "change",
-					"path": "/usr/local/bin/update_db_and_user.sh"
-				}
-			]
+			"shell": {
+				"bind": [
+					"/usr/local/bin/create_db_and_user.sh"
+				],
+				"unbind": [
+					"/usr/local/bin/delete_db_and_user.sh"
+				],
+				"change": [
+					"/usr/local/bin/update_db_and_user.sh"
+				]
+			}
 		}
 	}
 }
