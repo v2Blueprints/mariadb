@@ -24,15 +24,10 @@
 			"default-mysql-server"
 		]
 	},
-	"images": [
+	"containers": [
 		{
 			"type": "lxd",
 			"image": "enginesd_debian_base"
-		}
-	],
-	"containers": [
-		{
-			"type": "lxd"
 		}
 	],
 	"binding_anchor": {
