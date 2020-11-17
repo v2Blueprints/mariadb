@@ -19,6 +19,18 @@
 			"source": "logs"
 		}
 	],
+	"bindings": [
+		{
+			"type": "embed",
+			"descriptor": {
+				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
+			},
+			"variables": {
+				"locale": "^^locale^^",
+				"charset": "^^charset^^"
+			}
+		}
+	],
 	"os_packages": {
 		"adds": [
 			"default-mysql-server"
@@ -26,8 +38,7 @@
 	},
 	"containers": [
 		{
-			"type": "lxd",
-			"image": "enginesd_debian_base"
+			"type": "lxd"
 		}
 	],
 	"binding_anchor": {

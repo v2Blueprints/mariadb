@@ -1,0 +1,8 @@
+#!/bin/sh
+
+mysql < /tmp/init.sql
+
+ if test -f /tmp/packing/scripts/user/post_maria_db_setup
+	 then 
+	 	 /tmp/packing/scripts/user/post_maria_db_setup
+fi	 
