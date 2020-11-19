@@ -5,7 +5,7 @@
 		"root_password": "^^random(32)^^",
 		"max_allowed_packet": "4M",
 		"event_scheduler": 1,
-		"sql_mode": "1",
+		"sql_mode": 1,
 		"local_infile": 1,
 		"innodb_buffer_pool_size": 134217728
 	},
@@ -42,10 +42,10 @@
 		}
 	],
 	"binding_anchor": {
-		"variables": {
+		"configuration": {
 			"databasename": "^^identifier^^",
 			"username": "^^identifier^^_user",
-			"password": "^^random(10)^^",
+			"password": "^^random(16)^^",
 			"collation": "utf8_general_ci",
 			"charset": "utf8",
 			"super_user": false,
@@ -53,13 +53,13 @@
 		},
 		"scripts": {
 			"shell": {
-				"bind": [
+				"binding": [
 					"/usr/local/bin/create_db_and_user.sh"
 				],
-				"unbind": [
+				"unbinding": [
 					"/usr/local/bin/delete_db_and_user.sh"
 				],
-				"change": [
+				"changing": [
 					"/usr/local/bin/update_db_and_user.sh"
 				]
 			}
