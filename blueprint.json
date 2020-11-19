@@ -23,7 +23,7 @@
 		{
 			"type": "embed",
 			"descriptor": {
-				"repository": "https://github.com/MarkRatjens/enginesd_debian_base"
+				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
 			},
 			"variables": {
 				"locale": "^^locale^^",
