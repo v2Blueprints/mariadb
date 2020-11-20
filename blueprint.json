@@ -24,10 +24,6 @@
 			"type": "embed",
 			"descriptor": {
 				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
-			},
-			"variables": {
-				"locale": "^^locale^^",
-				"charset": "^^charset^^"
 			}
 		}
 	],
@@ -42,8 +38,7 @@
 		}
 	],
 	"binding_anchor": {
-		"configuration": {
-		    "hostname": "^^identifier^^",
+		   "hostname": "^^identifier^^",
 			"databasename": "^^identifier^^",
 			"username": "^^identifier^^_user",
 			"password": "^^random(16)^^",
@@ -52,18 +47,17 @@
 			"super_user": false,
 			"grant:": false
 		},
+
 		"scripts": {
-			"shell": {
-				"binding": [
-					"/usr/local/bin/create_db_and_user.sh"
-				],
-				"unbinding": [
-					"/usr/local/bin/delete_db_and_user.sh"
-				],
-				"changing": [
-					"/usr/local/bin/update_db_and_user.sh"
-				]
-			}
+			"binding": [
+				"/usr/local/bin/create_db_and_user.sh"
+			],
+			"unbinding": [
+				"/usr/local/bin/delete_db_and_user.sh"
+			],
+			"changing": [
+				"/usr/local/bin/update_db_and_user.sh"
+			]
 		}
 	}
 }
