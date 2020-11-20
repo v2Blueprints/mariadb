@@ -43,6 +43,7 @@
 	],
 	"binding_anchor": {
 		"configuration": {
+		    "hostname": "^^identifier^^",
 			"databasename": "^^identifier^^",
 			"username": "^^identifier^^_user",
 			"password": "^^random(16)^^",
