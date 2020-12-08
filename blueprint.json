@@ -13,10 +13,6 @@
 		{
 			"destination": "/var/lib/mariadb/",
 			"source": "data"
-		},
-		{
-			"destination": "/var/log/",
-			"source": "logs"
 		}
 	],
 	"bindings": [
@@ -38,7 +34,7 @@
 		}
 	],
 	"binding_anchor": {
-		   "hostname": "^^identifier^^",
+		    "hostname": "^^identifier^^",
 			"databasename": "^^identifier^^",
 			"username": "^^identifier^^_user",
 			"password": "^^random(16)^^",
