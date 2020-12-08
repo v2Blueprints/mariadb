@@ -13,11 +13,7 @@
 		{
 			"destination": "/var/lib/mariadb/",
 			"source": "data"
-		},
-		{
-			"destination": "/var/log/",
-			"source": "logs"
-		}
+		}		
 	],
 	"bindings": [
 		{
