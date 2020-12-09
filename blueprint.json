@@ -41,6 +41,6 @@
 		"collation": "utf8_general_ci",
 		"charset": "utf8",
 		"super_user": false,
-		"grant:": false
+		"grant": false
 	}
 }
