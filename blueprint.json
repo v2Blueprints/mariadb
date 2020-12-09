@@ -23,7 +23,7 @@
 			}
 		}
 	],
-	"os_packages": {
+	"system_packages": {
 		"adds": [
 			"default-mysql-server"
 		]
