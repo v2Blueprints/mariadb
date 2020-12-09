@@ -13,7 +13,7 @@
 		{
 			"destination": "/var/lib/mariadb/",
 			"source": "data"
-		}		
+		}
 	],
 	"bindings": [
 		{
@@ -34,26 +34,13 @@
 		}
 	],
 	"binding_anchor": {
-		    "hostname": "^^identifier^^",
-			"databasename": "^^identifier^^",
-			"username": "^^identifier^^_user",
-			"password": "^^random(16)^^",
-			"collation": "utf8_general_ci",
-			"charset": "utf8",
-			"super_user": false,
-			"grant:": false
-		},
-
-		"scripts": {
-			"binding": [
-				"/usr/local/bin/create_db_and_user.sh"
-			],
-			"unbinding": [
-				"/usr/local/bin/delete_db_and_user.sh"
-			],
-			"changing": [
-				"/usr/local/bin/update_db_and_user.sh"
-			]
-		}
+	  "hostname": "^^identifier^^",
+		"databasename": "^^identifier^^",
+		"username": "^^identifier^^_user",
+		"password": "^^random(16)^^",
+		"collation": "utf8_general_ci",
+		"charset": "utf8",
+		"super_user": false,
+		"grant:": false
 	}
 }
