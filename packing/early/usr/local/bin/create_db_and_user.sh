@@ -16,7 +16,7 @@ if test -z "$charset"
  	charset=utf8
 fi
 
-Q1="CREATE DATABASE IF NOT EXISTS $databasename  DEFAULT CHARACTER SET $charset
+Q1="CREATE DATABASE IF NOT EXISTS $database_name  DEFAULT CHARACTER SET $charset
   DEFAULT COLLATE $collation ; Create User '$username'@'%' IDENTIFIED BY '$password';"
 
 
@@ -31,20 +31,20 @@ Q1="CREATE DATABASE IF NOT EXISTS $databasename  DEFAULT CHARACTER SET $charset
  if test "$full_access" = true 
  	 then
  	   Q2="GRANT ALL  PRIVILEGES ON *.* TO '$username'@'%' WITH GRANT OPTION;"	   
-       Q3="Grant Create User on $databasename.*  to '$username'@'%';"
+       Q3="Grant Create User on $database_name.*  to '$username'@'%';"
  	fi
  
  if test -z $full_access
  then
-   Q2="GRANT ALL PRIVILEGES ON $databasename.* TO '$username'@'%';"
+   Q2="GRANT ALL PRIVILEGES ON $database_name.* TO '$username'@'%';"
  fi
 
 Q4="FLUSH PRIVILEGES;"
 SQL="${Q1}${Q2}${Q3}${Q4}"
 
-echo "$SQL" >/tmp/$databasename.sql
+echo "$SQL" >/tmp/$database_name.sql
 
-$MYSQL -u rma </tmp/$databasename.sql 2>&1 > /tmp/res
+$MYSQL -u rma </tmp/$database_name.sql 2>&1 > /tmp/res
 err_num=$?
 res=`cat /tmp/res`
 
@@ -54,7 +54,7 @@ echo $res | grep -v ERROR
 if test $? -eq 0
  then 
 	echo "Success"
-   rm /tmp/$databasename.sql
+   rm /tmp/$database_name.sql
 	exit 0
 fi
 	

@@ -18,15 +18,15 @@ Q1="set password for '"$username"'@'%' = PASSWORD('"$password"');"
  	 
    if test $full_access = true 
      then
-  		Q5=$Q5 "GRANT ALL PRIVILEGES ON $databasename.* TO '$db_username'@'%' WITH GRANT OPTION;"
+  		Q5=$Q5 "GRANT ALL PRIVILEGES ON $database_name.* TO '$db_username'@'%' WITH GRANT OPTION;"
     else	     
- 	   Q5=$Q5 "REVOKE GRANT ON $databasename.* TO '$username'@'%'  ;"
+ 	   Q5=$Q5 "REVOKE GRANT ON $database_name.* TO '$username'@'%'  ;"
     fi
 
 
 SQL="${Q1}${Q2}${Q3}${Q4}${Q5}"
 
-echo "$SQL" > /tmp/$databasename.sql
+echo "$SQL" > /tmp/$database_name.sql
 
 $MYSQL   -urma  -e "$SQL" 2>&1 > /tmp/res
 res=`cat /tmp/res`
@@ -36,7 +36,7 @@ echo $res | grep -v ERROR
 if test $? -eq 0
  then 
 	echo "Success"
-	rm /tmp/$databasename.sql
+	rm /tmp/$database_name.sql
 	exit 0
 fi
 	
