@@ -20,7 +20,7 @@
 	"bindings": [
 		{
 			"type": "embed",
-			"descriptor": {
+			"target": {
 				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
 			}
 		}
@@ -35,7 +35,7 @@
 			"type": "lxd"
 		}
 	],
-	"binding_anchor": {
+	"binding_target": {
 	  "hostname": "^^identifier^^",
 		"database_name": "^^identifier^^",
 		"username": "^^identifier^^_user",
