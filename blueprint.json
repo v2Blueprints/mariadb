@@ -1,6 +1,8 @@
 {
-	"title": "Mariadb",
-	"description": "Mariadb Server",
+	"about": {
+		"title": "Mariadb",
+		"explanation": "Mariadb Server"
+	},
 	"configuration": {
 		"root_password": "^^random(32)^^",
 		"max_allowed_packet": "4M",
