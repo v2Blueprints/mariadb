@@ -1,4 +1,4 @@
 #!/bin/sh
-mysql_install_db --skip-auth-anonymous-user  --auth-root-authentication-method=normal
+mysql_install_db 
 mysql < /tmp/packing/early/init.sql
 

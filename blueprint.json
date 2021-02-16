@@ -13,7 +13,7 @@
 	},
 	"volumes": [
 		{
-			"destination": "/var/lib/mariadb/",
+			"destination": "/var/lib/mysql/",
 			"source": "data"
 		}
 	],
