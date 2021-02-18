@@ -4,5 +4,5 @@ DELETE FROM mysql.user WHERE User='';
 
 
 #user with rights to create
-CREATE USER 'rma'@'localhost';  grant all ON *.* TO  'rma'@'localhost'  WITH GRANT OPTION;
+CREATE USER 'root'@'localhost';  grant all ON *.* TO  'root'@'localhost'  WITH GRANT OPTION;
 FLUSH PRIVILEGES;

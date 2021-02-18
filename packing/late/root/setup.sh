@@ -12,6 +12,6 @@ if test $? -eq 0
    mysql -h 127.0.0.1 < /root/init.sql
    rm /root/init.sql
  else
-   	mysql_upgrade
+   	mysql_upgrade --user=root --password=^^configuration.root_password^^
  fi    
 
