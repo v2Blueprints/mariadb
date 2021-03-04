@@ -36,7 +36,7 @@
 		}
 	],
 	"binding_target": {
-	  "hostname": "^^binder.identifier^^",
+	  "hostname": "^^binder.identifier^^.development.spaces.internal",
 		"database_name": "^^binder.identifier^^",
 		"username": "^^binder.identifier^^_user",
 		"password": "^^random(16)^^",

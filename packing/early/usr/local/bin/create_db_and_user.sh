@@ -16,6 +16,12 @@ if test -z "$charset"
  	charset=utf8
 fi
 
+if test -z "$collation"
+ then
+ 	collation=DEFAULT
+fi
+
+
 Q1="CREATE DATABASE IF NOT EXISTS $database_name  DEFAULT CHARACTER SET $charset
   DEFAULT COLLATE $collation ; Create User '$username'@'%' IDENTIFIED BY '$password';"
 
