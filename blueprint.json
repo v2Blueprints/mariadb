@@ -38,7 +38,7 @@
 	"binding_target": {
 	  "hostname": "^^binder.identifier^^",
 		"database_name": "^^binder.identifier^^",
-		"username": "^^binder.identifier^^_user",
+		"username": "^^binder.identifier^^",
 		"password": "^^random(16)^^",
 		"collation": "utf8_general_ci",
 		"charset": "utf8",
