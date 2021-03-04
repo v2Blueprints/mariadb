@@ -52,7 +52,7 @@
 		"connected": [
 			"/usr/local/bin/update_db_and_user.sh"
 		],
-		"unconnect": [
+		"disconnect": [
 			"/usr/local/bin/delete_db_and_user.sh"
 		]
 	}
