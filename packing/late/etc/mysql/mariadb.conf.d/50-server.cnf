@@ -166,7 +166,7 @@ innodb_flush_method	= O_DIRECT
 #
 # Allow server to accept connections on all interfaces.
 #
-#bind-address=0.0.0.0
+bind-address=0.0.0.0
 #
 # Optional setting
 #wsrep_slave_threads=1
@@ -182,10 +182,3 @@ max_allowed_packet	= 16M
 
 [isamchk]
 key_buffer		= 16M
-
-#
-# * IMPORTANT: Additional settings that can override those from this file!
-#   The files must end with '.cnf', otherwise they'll be ignored.
-#
-!include /etc/mysql/mariadb.cnf
-!includedir /etc/mysql/conf.d/
