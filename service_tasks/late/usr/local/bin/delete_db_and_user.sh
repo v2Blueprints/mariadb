@@ -4,7 +4,6 @@
 
 #FIX ME note all parameters passed in the environment to this Script must be sanitised (no ; no & etc
 
-
 Q1="DELETE FROM mysql.user where user=$username;"
 Q2="FLUSH PRIVILEGES;"
 Q3="Drop DATABASE $database_name;"
