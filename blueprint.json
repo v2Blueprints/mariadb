@@ -21,7 +21,8 @@
 		{
 			"type": "embed",
 			"target": {
-				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
+				"repository": "https://github.com/v2Blueprints/enginesd_debian_base",
+				"TYPE" : "FROM"
 			}
 		}
 	],
@@ -32,7 +33,7 @@
 	},
 	"containers": [
 		{
-			"type": "lxd"
+			"type": "docker"
 		}
 	],
 	"binding_target": {
