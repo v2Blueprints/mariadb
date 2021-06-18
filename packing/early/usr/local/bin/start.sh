@@ -9,3 +9,6 @@ if ! test -f /var/lib/mysql/libdata1
 	 	 echo Performing database upgrade
 	 	 mysql_upgrade -u rma
 fi
+
+
+exec mysqld
