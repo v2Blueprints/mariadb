@@ -1,16 +1,16 @@
 
-From: enginesd_debian_base  #Note image name here is too long 
+From enginesd_debian_base  #Note image name here is too long 
 
 
 ADD packing/early/ /
 ADD service_tasks/ /
 
 #Only required if configuration overides base configuration params TZ locale, char set, repo list
-RUN /tmp/packing/scripts/early/locale &\\
-    /tmp/packing/scripts/early/set_time_zone &\\
+RUN /tmp/packing/scripts/early/locale &&\
+    /tmp/packing/scripts/early/set_time_zone &&\
     /tmp/packing/scripts/early/repos 
     
-RUN ENGINES_PACKAGES="default-mysql-server"
+RUN /tmp/packing/scripts/late/install-packages default-mysql-server 
 
 ADD packing/late/ /
 
