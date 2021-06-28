@@ -25,12 +25,17 @@
 			}
 		}
 	],
+	"images": [
+		{
+			"type": "docker",
+			"image": "engines/debian"
+		}
+	],
 	"system_packages": {
 		"adds": [
 			"default-mysql-server"
 		]
 	},
-
 	"binding_target": {
 	  "hostname": "^^identifier^^",
 		"database_name": "^^binder.identifier^^",
