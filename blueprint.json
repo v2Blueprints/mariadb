@@ -20,6 +20,7 @@
 	"bindings": [
 		{
 			"type": "embed",
+			"runtime": "lxd",
 			"target": {
 				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
 			}
