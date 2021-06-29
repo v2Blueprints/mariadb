@@ -20,10 +20,17 @@
 	"bindings": [
 		{
 			"type": "embed",
+			"runtime": "lxd",
 			"target": {
 				"repository": "https://github.com/v2Blueprints/enginesd_debian_base",
 				"TYPE" : "FROM"
 			}
+		}
+	],
+	"images": [
+		{
+			"type": "docker",
+			"image": "engines/debian"
 		}
 	],
 	"system_packages": {
@@ -31,11 +38,6 @@
 			"default-mysql-server"
 		]
 	},
-	"containers": [
-		{
-			"type": "docker"
-		}
-	],
 	"binding_target": {
 	  "hostname": "^^identifier^^",
 		"database_name": "^^binder.identifier^^",
