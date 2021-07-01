@@ -38,6 +38,12 @@
 			"default-mysql-server"
 		]
 	},
+	"executions": [
+		{
+			"type": "docker",
+			"CMD": "/usr/local/bin/start.sh"
+		}
+	],
 	"binding_target": {
 	  "hostname": "^^identifier^^",
 		"database_name": "^^binder.identifier^^",
