@@ -1,8 +1,9 @@
 #!/bin/sh
 
 mkdir -p /var/run/mysqld/
-rm /var/run/mysqld/mysqld.sock
-if ! test -f /var/lib/mysql/libdata1
+chown mysql /var/run/mysqld/
+
+	if ! test -f /var/lib/mysql/libdata1
 	 then
 	 	echo installing initial database
 		mysql_install_db 
