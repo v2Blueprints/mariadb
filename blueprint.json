@@ -1,7 +1,7 @@
 {
 	"about": {
 		"title": "Mariadb",
-		"explanation": "Mariadb Server"
+		"explanation": "Mariadb Server - a Test variation"
 	},
 	"configuration": {
 		"root_password": "^^random(32)^^",
