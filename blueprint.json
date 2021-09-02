@@ -30,7 +30,7 @@
 	"images": [
 		{
 			"type": "docker",
-			"image": "engines/debian"
+			"image": "spaces/engines/base_arena/enginesd_debian_base"
 		}
 	],
 	"system_packages": {
