@@ -16,9 +16,9 @@
 	},
 	"volumes": [
 		{
-		     "type": "volume|bind",
+		    "type": "bind",
 			"destination": "/var/lib/mysql/",
-			"source": "data|/var/lib/engines/mariadb/"
+			"source": "/var/lib/engines/mariadb/"
 		}
 	],
 	"bindings": [
