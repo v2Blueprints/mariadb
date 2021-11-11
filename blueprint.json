@@ -1,10 +1,10 @@
 {
 	"about": {
 		"title": "Mariadb",
-		"explanation": "Mariadb Server"
+		"explanation": "Mariadb Server - a Test variation"
 	},
 	"sysctls": {
-	  "net.core.somaxconn": "1024"	 
+	  "net.core.somaxconn": "1024"
 	},
 	"configuration": {
 		"root_password": "^^random(32)^^",
@@ -16,7 +16,7 @@
 	},
 	"volumes": [
 		{
-		    "type": "bind",
+		  "type": "bind",
 			"destination": "/var/lib/mysql/",
 			"source": "/var/lib/engines/mariadb/"
 		}
@@ -24,17 +24,9 @@
 	"bindings": [
 		{
 			"type": "embed",
-			"runtime": "lxd",
 			"target": {
-				"repository": "https://github.com/v2Blueprints/enginesd_debian_base",
-				"TYPE" : "FROM"
+				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
 			}
-		}
-	],
-	"images": [
-		{
-			"type": "docker",
-			"image": "engines/engines/base_arena/enginesd_debian_base"
 		}
 	],
 	"system_packages": {
@@ -42,12 +34,6 @@
 			"default-mysql-server"
 		]
 	},
-	"executions": [
-		{
-			"type": "docker",
-			"CMD": "/usr/local/bin/start.sh"
-		}
-	],
 	"binding_target": {
 	  "hostname": "^^identifier^^",
 		"database_name": "^^binder.identifier^^",
