@@ -1,58 +1,58 @@
 {
-	"about": {
-		"title": "Mariadb",
-		"explanation": "Mariadb Server - a Test variation"
-	},
-	"sysctls": {
-	  "net.core.somaxconn": "1024"
-	},
-	"configuration": {
-		"root_password": "^^random(32)^^",
-		"max_allowed_packet": "4M",
-		"event_scheduler": 1,
-		"sql_mode": 1,
-		"local_infile": 1,
-		"innodb_buffer_pool_size": 134217728
-	},
-	"volumes": [
-		{
-		  "type": "bind",
-			"destination": "/var/lib/mysql/",
-			"source": "/var/lib/engines/mariadb/"
-		}
-	],
-	"bindings": [
-		{
-			"type": "embed",
-			"target": {
-				"repository": "https://github.com/v2Blueprints/enginesd_debian_base"
-			}
-		}
-	],
-	"system_packages": {
-		"adds": [
-			"default-mysql-server"
-		]
-	},
-	"binding_target": {
-	  "hostname": "^^identifier^^",
-		"database_name": "^^binder.identifier^^",
-		"username": "^^binder.identifier^^",
-		"password": "^^random(16)^^",
-		"collation": "utf8_general_ci",
-		"charset": "utf8",
-		"super_user": false,
-		"grant": false
-	},
-	"service_tasks": {
-		"connect": [
-			"/usr/local/bin/create_db_and_user.sh"
-		],
-		"connected": [
-			"/usr/local/bin/update_db_and_user.sh"
-		],
-		"disconnect": [
-			"/usr/local/bin/delete_db_and_user.sh"
-		]
-	}
+  "identifier": "mariadb",
+  "about": {
+    "title": "Mariadb",
+    "explanation": "Mariadb Server - a Test variation"
+  },
+  "configuration": {
+    "root_password": "^^random(32)^^",
+    "max_allowed_packet": "4M",
+    "event_scheduler": 1,
+    "sql_mode": 1,
+    "local_infile": 1,
+    "innodb_buffer_pool_size": 134217728
+  },
+  "volumes": [
+    {
+      "type": "bind",
+      "destination": "/var/lib/mysql/",
+      "source": "/var/lib/engines/mariadb/"
+    }
+  ],
+  "bindings": [
+    {
+      "type": "embed",
+      "runtimes": [
+        "lxd"
+      ],
+      "target": {
+        "repository": "https://github.com/v2Blueprints/enginesd_debian_base"
+      }
+    }
+  ],
+  "images": [
+    {
+      "runtimes": [
+        "docker"
+      ],
+      "target": {
+        "repository": "https://github.com/v2Blueprints/enginesd_debian_base"
+      }
+    }
+  ],
+  "system_packages": {
+    "adds": [
+      "default-mysql-server"
+    ]
+  },
+  "binding_target": {
+    "hostname": "^^identifier^^",
+    "database_name": "^^binder.identifier^^",
+    "username": "^^binder.identifier^^",
+    "password": "^^random(16)^^",
+    "collation": "utf8_general_ci",
+    "charset": "utf8",
+    "super_user": false,
+    "grant": false
+  }
 }
