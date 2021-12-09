@@ -54,5 +54,16 @@
     "charset": "utf8",
     "super_user": false,
     "grant": false
-  }
+  },
+  "service_tasks": {
+		"connect": [
+			"/usr/local/bin/create_db_and_user.sh"
+		],
+		"connected": [
+			"/usr/local/bin/update_db_and_user.sh"
+		],
+		"disconnect": [
+			"/usr/local/bin/delete_db_and_user.sh"
+		]
+	}
 }
