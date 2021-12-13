@@ -15,4 +15,4 @@ chown mysql /var/run/mysqld/
 	 	  	 
 fi
 
-touch /var/run/created
+touch /var/run/status/startup_complete
