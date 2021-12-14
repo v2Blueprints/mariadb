@@ -16,7 +16,7 @@
     {
       "type": "bind",
       "destination": "/var/lib/mysql/",
-      "source": "/var/lib/engines/mariadb/"
+      "name": "data"
     }
   ],
   "bindings": [
