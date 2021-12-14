@@ -8,7 +8,7 @@ chown mysql /var/run/mysqld/
 	 	echo installing initial database
 		mysql_install_db
 		mysql < /root/init.sql
-	 elif ! test -f ^^service_path^^/startup_complete
+	 elif ! test -f /var/run/created
 	 	 then
 	 	 echo Performing database upgrade
 	 	 mysql_upgrade -u rma
