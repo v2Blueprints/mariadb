@@ -14,5 +14,3 @@ chown mysql /var/run/mysqld/
 	 	 mysql_upgrade -u rma
 
 fi
-
-touch ^^service_path^^/startup_complete
