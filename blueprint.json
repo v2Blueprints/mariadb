@@ -14,7 +14,6 @@
   },
   "volumes": [
     {
-      "type": "bind",
       "destination": "/var/lib/mysql/",
       "name": "data"
     }
@@ -54,20 +53,5 @@
     "charset": "utf8",
     "super_user": false,
     "grant": false
-  },
-  "service_tasks": {
-		"connect": {
-		"script":	"/usr/local/bin/create_db_and_user.sh",
-		"mandatory" : ["hostname", "database_name", "username" ,"password"]
-		},
-		"connected": {
-		"script":	"/usr/local/bin/update_db_and_user.sh",
-		"mandatory": ["hostname", "database_name", "username" ],
-		"mutable": ["password","full_access","super_user"]
-		},
-		"disconnect": {
-		"script":	"/usr/local/bin/delete_db_and_user.sh",
-		"mandatory": ["hostname", "database_name", "username" ]
-		}
-	}
+  }
 }
