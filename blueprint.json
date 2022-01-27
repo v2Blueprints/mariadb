@@ -4,6 +4,9 @@
     "title": "Mariadb",
     "explanation": "Mariadb Server - a Test variation"
   },
+  "input": {
+    "root_password": "^^random(32)^^"
+  },
   "configuration": {
     "root_password": "^^random(32)^^",
     "max_allowed_packet": "4M",
