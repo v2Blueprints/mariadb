@@ -37,19 +37,23 @@
     ]
   },
   "binding_target": {
-    "root_password": "^^random(32)^^",
-    "max_allowed_packet": "4M",
-    "event_scheduler": 1,
-    "sql_mode": 1,
-    "local_infile": 1,
-    "innodb_buffer_pool_size": 134217728,
-    "hostname": "^^identifier^^",
-    "database_name": "^^binder.identifier^^",
-    "username": "^^binder.identifier^^",
-    "password": "^^random(16)^^",
-    "collation": "utf8_general_ci",
-    "charset": "utf8",
-    "super_user": false,
-    "grant": false
+    "configuration": {
+      "root_password": "^^random(32)^^",
+      "max_allowed_packet": "4M",
+      "event_scheduler": 1,
+      "sql_mode": 1,
+      "local_infile": 1,
+      "innodb_buffer_pool_size": 134217728
+    },
+    "service": {
+      "hostname": "^^identifier^^",
+      "database_name": "^^binder.identifier^^",
+      "username": "^^binder.identifier^^",
+      "password": "^^random(16)^^",
+      "collation": "utf8_general_ci",
+      "charset": "utf8",
+      "super_user": false,
+      "grant": false
+    }
   }
 }
