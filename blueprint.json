@@ -2,33 +2,12 @@
   "identifier": "mariadb",
   "about": {
     "title": "Mariadb",
-    "explanation": "Mariadb Server - a Test variation"
+    "explanation": "Mariadb Server"
   },
   "volumes": [
     {
       "destination": "/var/lib/mysql/",
       "name": "data"
-    }
-  ],
-  "bindings": [
-    {
-      "type": "embed",
-      "runtimes": [
-        "lxd"
-      ],
-      "target": {
-        "repository": "https://github.com/v2Blueprints/enginesd_debian_base"
-      }
-    }
-  ],
-  "images": [
-    {
-      "runtimes": [
-        "docker"
-      ],
-      "target": {
-        "repository": "https://github.com/v2Blueprints/enginesd_debian_base"
-      }
     }
   ],
   "system_packages": {
@@ -57,3 +36,4 @@
     }
   }
 }
+
